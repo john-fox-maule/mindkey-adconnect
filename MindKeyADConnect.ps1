@@ -491,7 +491,7 @@ function New-ADUsersFromMindKey {
                                </table>' -f $ValidFrom, $GivenName, $_.Name_LastName, $DisplayName, $Location.Name, $_.Email, $Title, $Department.Name, $ReportsToDescription)
                 $Body = ('<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>a</title></head><body>{0}</body></html>' -f $BodyTable)
                 $Subject = ('INFO: Staff - {0}' -f $Location.Name)
-                Send-UserMail -Content $Body -Subject
+                Send-UserMail -Content $Body -Subject $Subject
                                 
                 # Log stuff.
                 $Message = ('User with EmployeeID {0} does not exist in Active Directory. Creating user {1}.' -f $_.EmployeeID, $_.Name_FullName)
